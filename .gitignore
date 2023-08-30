@@ -1,0 +1,49 @@
+# Python
+*.pyc
+*.pyo
+*.egg-info/
+__pycache__/
+
+# Environments
+*.env
+.venv/
+env/
+venv/
+ENV/
+env
+
+# Django
+*.log
+*.pot
+*.db
+db.sqlite3
+migrations/
+media/
+
+# Editors
+*.swp
+*.swo
+*.swn
+*.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Mac OS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Other
+db_dump/
+*.bak
+*.cache
+*.DS_Store
+*.log
+*.tmp

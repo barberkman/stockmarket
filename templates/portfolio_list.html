@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load dict_filters %} 
+{% load arithmetic_filters %}
+
+{% block content %}
+
+<br><h1>Portfolio</h1><br>
+{% for stock in stock_list %}
+{% with current_value=stock.net_quantity|multiply:stock.last_price %}
+{% if stock.net_quantity != 0 %}
+
+<div class="card">
+    <div class="card-header">{{ stock.symbol }}</div>
+    <div class="card-body">
+        <h5 class="card-title">{{ stock.name }}</h5>
+        <p class="card-text">
+            <p>Quantity: {{ stock.net_quantity }}</p>
+            <p>Current Price Per Share: {{ prices|get_item:stock.symbol|floatformat:2 }}{{ stock.currency.symbol }}</p>
+        </p>
+    </div>
+    {% with total_profit=current_value|subtract:stock.net_sum %}
+    <div class="card-footer text-body-secondary {% if total_profit >= 0 %}bg-success-subtle{% else %}bg-danger-subtle{% endif %}">
+        <p>Total profit: {{ total_profit|floatformat:2 }}{{ stock.currency.symbol }}</p>
+    </div>
+    {% endwith %}
+</div>
+
+<br>
+{% endif %}
+{% endwith %}
+{% endfor %}
+{% endblock content %}

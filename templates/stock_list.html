@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Stock List</h1>
+
+{% for stock in stock_list %}
+<p>{{ stock.symbol }}</p>
+<p>{{ stock.name }}</p>
+<p>{{ stock.last_price }} {{ stock.currency.symbol }}</p>
+<p>{{ stock.last_price_date }}</p>
+<hr>
+{% endfor %}
+
+{% endblock content %}

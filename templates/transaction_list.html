@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br><h1>Transactions</h1><br>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Symbol</th>
+        <th scope="col">#</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for transaction in transaction_list %}
+    <tr class="{% if transaction.transaction_type == 'BUY' %}table-success{% else %}table-danger{% endif %}">
+        <th>{{ transaction.get_transaction_type_display }}</th>
+        <td>{{ transaction.stock.symbol }}</td>
+        <td>{{ transaction.quantity }}</td>
+        <td>{{ transaction.price_per_share|floatformat:2 }} {{ transaction.stock.currency.symbol }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
