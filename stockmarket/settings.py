@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
+    "smuggler",
     "stocks.apps.StocksConfig",
     "transactions.apps.TransactionsConfig",
     "portfolio.apps.PortfolioConfig",
